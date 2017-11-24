@@ -3,7 +3,7 @@
 // }
 
 
-var CACHE_NAME = ['my-site-cache-v30'];
+var CACHE_NAME = ['my-site-cache-v31'];
 // The files we want to cache
 var urlsToCache = [
   './index.html',
