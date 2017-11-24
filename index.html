@@ -9,19 +9,18 @@
 	<h2>mn</h2>
 	<img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png">
 	<h3>testCashed</h3>
-	123
 	<p>testCashed6688</p>
 </body>
 
 <script>
-	// if ('serviceWorker' in navigator) {
-	//   navigator.serviceWorker.register('./sw.js').then(function(registration) {
-	//     // Registration was successful
-	//     console.log('ServiceWorker registration successful with scope: ',    registration.scope);
-	//   }).catch(function(err) {
-	//     // registration failed :(
-	//     console.log('ServiceWorker registration failed: ', err);
-	//   });
-	// }
+	if ('serviceWorker' in navigator) {
+	  navigator.serviceWorker.register('./sw.js').then(function(registration) {
+	    // Registration was successful
+	    console.log('ServiceWorker registration successful with scope: ',    registration.scope);
+	  }).catch(function(err) {
+	    // registration failed :(
+	    console.log('ServiceWorker registration failed: ', err);
+	  });
+	}
 </script>
 </html>
