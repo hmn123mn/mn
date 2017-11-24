@@ -3,7 +3,7 @@
 // }
 
 
-var CACHE_NAME = 'my-site-cache-v2';
+var CACHE_NAME = ['my-site-cache-v2'];
 // The files we want to cache
 var urlsToCache = [
   './style.css'
@@ -13,7 +13,7 @@ var urlsToCache = [
 self.addEventListener('install', function(event) {
     // Perform install steps
     event.waitUntil(
-	    caches.open(CACHE_NAME)
+	    caches.open(CACHE_NAME[0])
 	      .then(function(cache) {
 	        console.log('Opened cache');
 	        return cache.addAll(urlsToCache);
@@ -24,10 +24,16 @@ self.addEventListener('install', function(event) {
 
 self.addEventListener('activate', function(event) {
 
+
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
-    	console.log(cacheNames);
-        return caches.delete(cacheName);
+      return Promise.all(
+        cacheNames.map(function(cacheName) {
+          if (CACHE_NAME.indexOf(cacheName) === -1) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
     })
   );
 });
