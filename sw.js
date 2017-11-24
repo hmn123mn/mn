@@ -3,7 +3,7 @@
 // }
 
 
-var CACHE_NAME = ['my-site-cache-v42'];
+var CACHE_NAME = ['my-site-cache-v43'];
 // The files we want to cache
 var urlsToCache = [
   './index.html',
@@ -21,9 +21,9 @@ self.addEventListener('install', function(event) {
 	        console.log('Opened cache');
 	        return cache.addAll(urlsToCache);
 	      })
-	      .then(function() {
-	        return self.skipWaiting();
-	      })
+	      // .then(function() {
+	      //   return self.skipWaiting();
+	      // })
     );
 });
 
