@@ -25,7 +25,7 @@ self.addEventListener('install', function(event) {
 });
 
 
-self.addEventListener('activate', evnet => event.waitUntil(
+self.addEventListener('activate', event => event.waitUntil(
     Promise.all([
         // 更新客户端
         clients.claim(),
