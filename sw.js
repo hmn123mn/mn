@@ -3,7 +3,7 @@
 // }
 
 
-var CACHE_NAME = ['my-site-cache-v20'];
+var CACHE_NAME = ['my-site-cache-v21'];
 // The files we want to cache
 var urlsToCache = [
   './',
