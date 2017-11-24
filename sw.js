@@ -3,7 +3,7 @@
 // }
 
 
-var CACHE_NAME = ['my-site-cache-v3'];
+var CACHE_NAME = ['my-site-cache-v11'];
 // The files we want to cache
 var urlsToCache = [
   './style.css'
