@@ -13,6 +13,7 @@ var urlsToCache = [
 // Set the callback for the install step
 self.addEventListener('install', function(event) {
     // Perform install steps
+    self.skipWaiting();
     console.log('install',event);
     event.waitUntil(
 	    caches.open(CACHE_NAME[0])
@@ -26,7 +27,7 @@ self.addEventListener('install', function(event) {
     );
 });
 
-
+console.log('test');
 self.addEventListener('activate', function(event) {
   var mainCache = CACHE_NAME;
   event.waitUntil(
