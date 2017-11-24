@@ -7,8 +7,7 @@ var CACHE_NAME = ['my-site-cache-v34'];
 // The files we want to cache
 var urlsToCache = [
   './index.html',
-  './style.css',
-  './sw.js'
+  './style.css'
 ];
 
 // Set the callback for the install step
