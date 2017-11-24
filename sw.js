@@ -3,7 +3,7 @@
 // }
 
 
-var CACHE_NAME = ['my-site-cache-v13'];
+var CACHE_NAME = ['my-site-cache-v15'];
 // The files we want to cache
 var urlsToCache = [
   './style.css'
@@ -23,12 +23,12 @@ self.addEventListener('install', function(event) {
 
 
 self.addEventListener('activate', function(event) {
-
-
+  console.log(event);
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
       return Promise.all(
         cacheNames.map(function(cacheName) {
+        	console.log(cacheName);
           if (CACHE_NAME.indexOf(cacheName) === -1) {
             return caches.delete(cacheName);
           }
