@@ -1,8 +1,8 @@
 importScripts('serviceworker-cache-polyfill.js');
 
-self.onfetch = (e)=> {
-	e.respondWith(new Response('hello sw'))
-}
+// self.onfetch = (e)=> {
+// 	e.respondWith(new Response('hello sw'))
+// }
 
 
 var CACHE_NAME = 'my-site-cache-v1';
