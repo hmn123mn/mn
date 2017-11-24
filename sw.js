@@ -3,7 +3,7 @@
 // }
 
 
-var CACHE_NAME = ['my-site-cache-v38'];
+var CACHE_NAME = ['my-site-cache-v40'];
 // The files we want to cache
 var urlsToCache = [
   './index.html',
@@ -13,7 +13,6 @@ var urlsToCache = [
 // Set the callback for the install step
 self.addEventListener('install', function(event) {
     // Perform install steps
-    self.skipWaiting();
     console.log('install',event);
     event.waitUntil(
 	    caches.open(CACHE_NAME[0])
