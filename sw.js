@@ -26,6 +26,7 @@ self.addEventListener('activate', function(event) {
 
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
+    	console.log(cacheNames);
         return caches.delete(cacheName);
     })
   );
