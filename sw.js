@@ -3,7 +3,7 @@
 // }
 
 
-var CACHE_NAME = ['my-site-cache-v15'];
+var CACHE_NAME = ['my-site-cache-v16'];
 // The files we want to cache
 var urlsToCache = [
   './style.css'
@@ -12,6 +12,7 @@ var urlsToCache = [
 // Set the callback for the install step
 self.addEventListener('install', function(event) {
     // Perform install steps
+    console.log('install',event);
     event.waitUntil(
 	    caches.open(CACHE_NAME[0])
 	      .then(function(cache) {
@@ -23,7 +24,7 @@ self.addEventListener('install', function(event) {
 
 
 self.addEventListener('activate', function(event) {
-  console.log(event);
+  console.log('activate',event);
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
       return Promise.all(
