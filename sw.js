@@ -3,7 +3,7 @@
 // }
 
 
-var CACHE_NAME = ['my-site-cache-v18'];
+var CACHE_NAME = ['my-site-cache-v20'];
 // The files we want to cache
 var urlsToCache = [
   './',
@@ -25,19 +25,21 @@ self.addEventListener('install', function(event) {
 
 
 self.addEventListener('activate', function(event) {
-  console.log('activate',event);
+  var mainCache = CACHE_NAME;
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
       return Promise.all(
         cacheNames.map(function(cacheName) {
-        	console.log(cacheName);
-          if (CACHE_NAME.indexOf(cacheName) === -1) {
+          if ( mainCache.indexOf(cacheName) === -1 ) {
+            // When it doesn't match any condition, delete it.
+            console.info('SW: deleting ' + cacheName);
             return caches.delete(cacheName);
           }
         })
       );
     })
   );
+  return self.clients.claim();
 });
 
 self.addEventListener('fetch', function(event) {
