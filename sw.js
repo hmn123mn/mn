@@ -3,7 +3,7 @@
 // }
 
 
-var CACHE_NAME = 'my-site-cache-v70';
+var CACHE_NAME = 'my-site-cache-v72';
 // The files we want to cache
 var urlsToCache = [
   './index.html',
@@ -15,13 +15,13 @@ self.addEventListener('install', function(event) {
     // Perform install steps
     self.skipWaiting();
     console.log('install',event);
-    event.waitUntil(
-	    caches.open(CACHE_NAME)
-	      .then(function(cache) {
-	        console.log('Opened cache');
-	        return cache.addAll(urlsToCache);
-	      })
-    );
+    // event.waitUntil(
+	  //   caches.open(CACHE_NAME)
+	  //     .then(function(cache) {
+	  //       console.log('Opened cache');
+	  //       return cache.addAll(urlsToCache);
+	  //     })
+    // );
 });
 
 
