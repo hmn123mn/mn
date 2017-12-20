@@ -12,7 +12,6 @@
 	<h3>testCashed</h3>
 	<p>testCashed668899002323</p>
 	<p>12</p>
-	<p>66</p>
 </body>
 
 <script>
@@ -24,7 +23,7 @@
 	  //   // registration failed :(
 	  //   console.log('ServiceWorker registration failed: ', err);
 	  // });
-		const version = '1.0.3';
+		const version = '1.0.4';
 		navigator.serviceWorker.register('./sw.js').then(reg => {
 		    if (localStorage.getItem('sw_version') !== version) {
 		        reg.update().then(() => localStorage.setItem('sw_version', version));
