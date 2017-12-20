@@ -3,7 +3,7 @@
 // }
 
 
-var CACHE_NAME = 'my-site-cache-v78';
+var CACHE_NAME = 'my-site-cache-v79';
 // The files we want to cache
 var urlsToCache = [
   './index.html',
@@ -27,6 +27,7 @@ self.addEventListener('install', function(event) {
 
 
 self.addEventListener('activate', event => event.waitUntil(
+  console.log('active');
     Promise.all([
         // 更新客户端
         clients.claim(),
