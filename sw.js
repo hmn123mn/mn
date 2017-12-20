@@ -3,7 +3,7 @@
 // }
 
 
-var CACHE_NAME = 'my-site-cache-v74';
+var CACHE_NAME = 'my-site-cache-v76';
 // The files we want to cache
 var urlsToCache = [
   './index.html',
@@ -27,18 +27,28 @@ self.addEventListener('install', function(event) {
 
 
 self.addEventListener('activate', event => event.waitUntil(
-    Promise.all([
-        // 更新客户端
-        clients.claim(),
-        // 清理旧版本
-        caches.keys().then(cacheList => Promise.all(
-            cacheList.map(cacheName => {
-                if (cacheName !== CACHE_NAME) {
-                    caches.delete(cacheName);
-                }
-            })
-        ))
-    ])
+    // Promise.all([
+    //     // 更新客户端
+    //     clients.claim(),
+    //     // 清理旧版本
+    //     caches.keys().then(cacheList => Promise.all(
+    //         cacheList.map(cacheName => {
+    //             if (cacheName !== CACHE_NAME) {
+    //                 caches.delete(cacheName);
+    //             }
+    //         })
+    //     ))
+    // ])
+    const cacheWhitelist = CACHE_NAME;
+    event.waitUntil(
+       caches.keys().then(keyList => {
+           return Promise.all(keyList.map(key => {
+               if (cacheWhitelist.indexOf(key) === -1) {
+                   return caches.delete(key);
+               }
+           }));
+       })
+    );
 ));
 
 
