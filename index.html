@@ -11,6 +11,7 @@
 	<img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png">
 	<h3>testCashed</h3>
 	<p>testCashed668899002323</p>
+	<p>12</p>
 </body>
 
 <script>
@@ -22,8 +23,8 @@
 	  //   // registration failed :(
 	  //   console.log('ServiceWorker registration failed: ', err);
 	  // });
-		const version = '1.0.1';
-		navigator.serviceWorker.register('/sw.js').then(reg => {
+		const version = '1.0.2';
+		navigator.serviceWorker.register('./sw.js').then(reg => {
 		    if (localStorage.getItem('sw_version') !== version) {
 		        reg.update().then(() => localStorage.setItem('sw_version', version));
 		    }
