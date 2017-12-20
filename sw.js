@@ -3,7 +3,7 @@
 // }
 
 
-var CACHE_NAME = 'my-site-cache-v76';
+var CACHE_NAME = 'my-site-cache-v77';
 // The files we want to cache
 var urlsToCache = [
   './index.html',
@@ -39,11 +39,11 @@ self.addEventListener('activate', event => event.waitUntil(
     //         })
     //     ))
     // ])
-    const cacheWhitelist = CACHE_NAME;
+
     event.waitUntil(
        caches.keys().then(keyList => {
            return Promise.all(keyList.map(key => {
-               if (cacheWhitelist.indexOf(key) === -1) {
+               if (CACHE_NAME.indexOf(key) === -1) {
                    return caches.delete(key);
                }
            }));
